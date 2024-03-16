@@ -8,6 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['DM Sans', 'sans-serif'],
+        playfair: ['Playfair Display', 'serif'],
+        html: ['DM Sans', 'sans-serif']
+      },
+      colors: {
+        'primary-orange': '#FF5722',
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
