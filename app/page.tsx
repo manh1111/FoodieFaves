@@ -1,6 +1,6 @@
 const Home = () => {
   return (
-    <div className="app pt-32 relative">
+    <div className="body">
         Home
     </div>
   )

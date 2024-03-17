@@ -74,6 +74,10 @@
     @apply relative z-10 flex justify-center items-center w-full;
 }
 
+.body{
+    @apply app pt-32 relative
+}
+
 .padding_content{
     @apply relative z-10 flex justify-center items-center flex-row sm:px-16 px-6;
 }

@@ -8,15 +8,15 @@ import { useState, useEffect } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Header: React.FC = () => {
-   const isUserLoggedIn = false;
-  const [providers, setProviders] = useState<Record<string, any> | null>(null);
+  const {data: session} = useSession()
+  const [providers, setProviders] = useState<Record<string, any> | null>(null)
 
   useEffect(() => {
-    const fetchProviders = async () => {
+    const setUpProviders = async () => {
       const response = await getProviders();
       setProviders(response);
     };
-    fetchProviders();
+    setUpProviders();
   }, []);
 
   const contactInfo: { phone: string; email: string } = {
@@ -65,7 +65,7 @@ const Header: React.FC = () => {
       </div>
 
       <div className="nav flex padding_content ">
-        <div className="logo flex-none items-center justify-center">
+        <div className="logo flex items-center justify-center">
           <Link href="/" className="flex flex-center">
             <Image
               className="object-contain"
@@ -75,7 +75,7 @@ const Header: React.FC = () => {
               height={55}
               alt="FoodieFaves Logo"
             />
-            <p className="font-playfair font-semibold italic text-2xl ">Foodie Faves</p>
+            <p className="font-playfair font-semibold italic text-2xl flex items-center justify-center">Foodie Faves</p>
           </Link>
         </div>
 
@@ -88,16 +88,21 @@ const Header: React.FC = () => {
         </div>
 
         <div className="action flex-none ">
-          {isUserLoggedIn ? (
-            <div>
-              <div className="flex gap-3 md:gap-5">
-                <Link href="/booking" className="black-btn">
-                  Book A Table
-                </Link>
-              </div>
-              <button type="button" onClick={() => signOut()} className="outline_btn">
+          {session?.user ? (
+            <div className="flex flex gap-3 md:gap-5">
+              <Link href="/booking" className="outline_btn">
+                Book A Table
+              </Link>
+              <button type="button" onClick={() => signOut()} className="black_btn">
                 Sign Out
               </button>
+              <Image
+                  src={session?.user.image || ""}
+                  width={37}
+                  height={37}
+                  className='rounded-full'
+                  alt='profile'
+                />
             </div>
           ) : (
               <div className="flex gap-3 md:gap-5">
