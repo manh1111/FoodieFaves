@@ -56,7 +56,7 @@ const Header: React.FC = () => {
 
           <div className="social flex flex-row">
             {socialIcons.map((social, index) => (
-              <div className={`border_icon ${social.parentClass}`} key={index}>
+              <div className={`border_icon bg-[#F9F9F7]/[.12] ${social.parentClass}`} key={index}>
                 {social.icon}
               </div>
             ))}
@@ -71,8 +71,8 @@ const Header: React.FC = () => {
               className="object-contain"
               priority={true}
               src={images.logo}
-              width={55}
-              height={55}
+              width={80}
+              height={80}
               alt="FoodieFaves Logo"
             />
             <p className="font-playfair font-semibold italic text-2xl flex items-center justify-center">Foodie Faves</p>

@@ -70,6 +70,9 @@
 
 /* Tailwind Styles */
 
+.text_white{
+    @apply text-white font-normal !important;
+}
 .app {
     @apply relative z-10 flex justify-center items-center w-full;
 }
@@ -79,7 +82,7 @@
 }
 
 .padding_content{
-    @apply relative z-10 flex justify-center items-center flex-row sm:px-16 px-6;
+    @apply relative z-10 flex justify-center items-center sm:px-16 px-6;
 }
 
 .box-content{
@@ -87,7 +90,7 @@
 }
 
 .border_icon{
-    @apply rounded-full bg-[#F9F9F7]/[.12] w-8 h-8 flex mx-1 justify-center items-center;
+    @apply rounded-full w-8 h-8 flex mx-1 justify-center items-center;
 }
 
 .primary_btn {
@@ -102,8 +105,8 @@
     @apply rounded-full border border-black bg-transparent py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm flex items-center justify-center;
 }
 
-.head_text {
-    @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
+.footer_text {
+    @apply font-sans text-[#ADB29E] text-xs font-thin;
 }
 
 .orange_gradient {
@@ -134,25 +137,12 @@
     @apply rounded-xl border border-gray-200 bg-white/20 backdrop-blur p-5;
 }
 
-/* Form Component */
-.form_textarea {
-    @apply w-full flex rounded-lg h-[200px] mt-2 p-3 text-sm text-gray-500 outline-0;
-}
-
-.form_input {
-    @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
-}
-
-/* Nav Component */
-.logo_text {
-    @apply max-sm:hidden font-semibold text-lg text-black tracking-wide;
-}
-
-.dropdown {
-    @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
-}
-
-.dropdown_link {
-    @apply text-sm text-gray-700 hover:text-gray-500 font-medium;
+.rounded_image {
+    background-color: white;
+    border-radius: 40%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    filter: brightness(0.5) blur(0.5px);
+    padding: 5px;
+    margin-right: 10px;
 }
 
