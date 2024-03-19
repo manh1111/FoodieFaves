@@ -41,7 +41,7 @@ const Header: React.FC = () => {
 
   return (
     <section className="w-full fixed z-40">
-      <div className="contact padding_content bg-[#474747] py-2">
+      <div className="contact padding_content bg-[--color-primary] py-2">
         <div className="w-full flex justify-between">
           <div className="info box-content">
             <div className="call box-content">
@@ -56,15 +56,14 @@ const Header: React.FC = () => {
 
           <div className="social flex flex-row">
             {socialIcons.map((social, index) => (
-              <div className={`border_icon bg-[#F9F9F7]/[.12] ${social.parentClass}`} key={index}>
+              <div className={`border_icon bg-[#F9F9F7]/[.12]  ${social.parentClass}`} key={index}>
                 {social.icon}
               </div>
             ))}
           </div>
         </div>
       </div>
-
-      <div className="nav flex padding_content ">
+      <div className="nav flex padding_content bg-white">
         <div className="logo flex items-center justify-center">
           <Link href="/" className="flex flex-center">
             <Image
@@ -75,11 +74,11 @@ const Header: React.FC = () => {
               height={80}
               alt="FoodieFaves Logo"
             />
-            <p className="font-playfair font-semibold italic text-2xl flex items-center justify-center">Foodie Faves</p>
+            <p className="font_playfair text-2xl font-semibold">Foodie Faves</p>
           </Link>
         </div>
 
-        <div className="menu flex grow justify-center gap-3 ">
+        <div className="menu flex grow shrink justify-center gap-3">
           {menuItems.map((menuItem, index) => (
             <Link key={index} href={menuItem.href} className="primary_btn">
               {menuItem.label}

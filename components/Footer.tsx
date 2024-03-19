@@ -33,8 +33,8 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <div className="w-full relative z-40 bg-[#474747] bottom-0">
-      <div className="content padding_content py-8 flex flex-col ">
+    <div className="w-full relative z-40 bg-[--color-primary] bottom-0">
+      <div className="section padding_content py-8 flex flex-col ">
         <div className="top w-full py-7 flex justify-between">
           <div className="info flex flex-col w-56">
             <div className="logo flex items-center justify-center">
@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
               
             <div className="social flex flex-row">
               {socialIcons.map((social, index) => (
-                <div className={`border_icon bg-[#AD343E] ${social.parentClass}`} key={index}>
+                <div className={`border_icon bg-[--color-red] ${social.parentClass}`} key={index}>
                   {social.icon}
                 </div>
               ))}

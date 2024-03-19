@@ -14,7 +14,7 @@ const config: Config = {
         html: ['DM Sans', 'sans-serif']
       },
       colors: {
-        'primary-orange': '#FF5722',
+        'color-gray': 'hsl(var(--color-gray), <alpha-value>)',
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

@@ -6,6 +6,14 @@
   Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
 */
 
+@layer base {
+    :root {
+        --color-primary: #474747;
+        --color-gray: #F9F9F7;
+        --color-red: #AD343E;
+    }
+}
+
 .main {
     width: 100vw;
     min-height: 100vh;
@@ -68,10 +76,24 @@
     }
 }
 
+/* icon style */
+.st0 {
+    fill:none;
+    stroke:--color-primary;
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-miterlimit:10;
+}
+
 /* Tailwind Styles */
 
 .text_white{
     @apply text-white font-normal !important;
+}
+
+.font_playfair{
+    @apply font-playfair italic flex items-center justify-center;
 }
 .app {
     @apply relative z-10 flex justify-center items-center w-full;
@@ -86,7 +108,7 @@
 }
 
 .box-content{
-    @apply flex justify-between items-center pr-4 text-white text-xs font-thin;
+    @apply flex items-center pr-4 text-white text-xs font-thin;
 }
 
 .border_icon{
@@ -94,15 +116,19 @@
 }
 
 .primary_btn {
-    @apply rounded-full h-fit bg-white px-5 py-1 font-medium transition-all hover:bg-[#DBDFD0] text-center text-sm flex items-center justify-center;
+    @apply rounded-full h-fit bg-white px-6 py-2 font-medium transition-all hover:bg-[#DBDFD0] text-center text-sm flex items-center justify-center;
 }
 
 .black_btn {
-    @apply rounded-full border border-black bg-black py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm flex items-center justify-center;
+    @apply rounded-full border border-black bg-black py-3 px-6 text-white transition-all hover:bg-white hover:text-black text-center text-sm flex items-center justify-center;
 }
 
 .outline_btn {
-    @apply rounded-full border border-black bg-transparent py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm flex items-center justify-center;
+    @apply rounded-full border border-black bg-transparent py-4 px-6 text-black transition-all hover:bg-black hover:text-white text-center text-sm flex items-center justify-center;
+}
+
+.red_btn {
+    @apply rounded-full border border-[--color-red] bg-[--color-red] py-4 px-6 text-white transition-all hover:bg-white hover:text-[--color-red] text-center text-sm flex items-center justify-center;
 }
 
 .footer_text {
@@ -119,10 +145,6 @@
 
 .blue_gradient {
     @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
-}
-
-.desc {
-    @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl;
 }
 
 .search_input {
@@ -144,5 +166,13 @@
     filter: brightness(0.5) blur(0.5px);
     padding: 5px;
     margin-right: 10px;
+}
+
+.section{
+    @apply flex w-full justify-center items-center px-6 sm:px-16 py-2 sm:py-12
+}
+
+.header_content{
+    @apply font_playfair text-2xl md:text-4xl font-semibold
 }
 
