@@ -1,7 +1,9 @@
-export const images = {
-    logo: require('./logo.png').default,
+export const images = { logo: require('./logo.png').default,
     bg: require('./content-bg.png'),
-    home1: require('./home-part1.png')
+    home1: require('./home-part1.png'),
+    about1: require('./about-1.png'),
+    about2: require('./about-2.png'),
+    about3: require('./about-3.png'),
 }
 
 export const homePart2 = {

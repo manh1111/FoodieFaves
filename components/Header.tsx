@@ -97,8 +97,8 @@ const Header: React.FC = () => {
               </button>
               <Image
                   src={session?.user.image || ""}
-                  width={37}
-                  height={37}
+                  width={46}
+                  height={46}
                   className='rounded-full'
                   alt='profile'
                 />

@@ -116,19 +116,19 @@
 }
 
 .primary_btn {
-    @apply rounded-full h-fit bg-white px-6 py-2 font-medium transition-all hover:bg-[#DBDFD0] text-center text-sm flex items-center justify-center;
+    @apply rounded-full h-fit bg-white px-5 py-3 font-medium transition-all hover:bg-[#DBDFD0] text-center text-sm flex items-center justify-center;
 }
 
 .black_btn {
-    @apply rounded-full border border-black bg-black py-3 px-6 text-white transition-all hover:bg-white hover:text-black text-center text-sm flex items-center justify-center;
+    @apply rounded-full border border-black bg-black py-3 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm flex items-center justify-center;
 }
 
 .outline_btn {
-    @apply rounded-full border border-black bg-transparent py-4 px-6 text-black transition-all hover:bg-black hover:text-white text-center text-sm flex items-center justify-center;
+    @apply rounded-full border border-black bg-transparent py-3 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm flex items-center justify-center;
 }
 
 .red_btn {
-    @apply rounded-full border border-[--color-red] bg-[--color-red] py-4 px-6 text-white transition-all hover:bg-white hover:text-[--color-red] text-center text-sm flex items-center justify-center;
+    @apply rounded-full border border-[--color-red] bg-[--color-red] py-3 px-5 text-white transition-all hover:bg-white hover:text-[--color-red] text-center text-sm flex items-center justify-center;
 }
 
 .footer_text {
@@ -172,7 +172,11 @@
     @apply flex w-full justify-center items-center px-6 sm:px-16 py-2 sm:py-12
 }
 
+.section_between {
+    @apply flex w-full justify-between items-center px-6 sm:px-16 py-2 sm:py-12
+}
+
 .header_content{
-    @apply font_playfair text-2xl md:text-4xl font-semibold
+    @apply font_playfair text-2xl md:text-4xl font-medium not-italic !important
 }
 

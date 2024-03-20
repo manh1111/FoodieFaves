@@ -6,46 +6,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { Breakfast, Clock, Desserts, Drinks, Location, Mail, MainDishes, Phone, ReceiptTax, ShoppingCart } from "@public/assets/icons/icons";
 import { images, homePart2, homePart3, homePart4, customer } from "@public/assets/images";
+import SectionAbout from "@components/SectionAbout";
+import { AboutSectionItem, Blog, Event, InfoItem, MenuIcon, Testimonial } from "@models/type";
+import SectionTestimonial from "@components/SectionTestimonial";
+import BlogCard from "@components/BlogCard";
 
-interface InfoItem {
-  name: string;
-  info: string;
-  icon: JSX.Element;
-}
-
-interface MenuIcon {
-  name: string;
-  desc: string;
-  icon: JSX.Element;
-}
-
-interface Event {
-  name: string;
-  desc: string;
-  image: string;
-}
-
-interface Testimonial {
-  name: string;
-  location: string;
-  image: string;
-  feedback: string;
-  comment: string;
-}
-
-interface Blog {
-  title: string;
-  time: string;
-  image: string;
-  desc?: string;
-}
 
 const Home: React.FC = () => {
-  const [showContactInfo, setShowContactInfo] = useState(false);
-  const [hoverPosition, setHoverPosition] = useState<{ x: number, y: number }>({ x: 0, y: 0 });
 
-
-const contactInfo: InfoItem[] = [
+  const contactInfo: InfoItem[] = [
 {
   name: "phone",
   info: "(+84)974 6374 10",
@@ -61,7 +30,16 @@ const contactInfo: InfoItem[] = [
   info: "Thanh Tri, Ha Noi",
   icon: <Location width="18" height="18" className="mr-2" />
 }
-];
+  ];
+  
+const sectionInfo:AboutSectionItem = {
+  header: "We provide healthy food for your family.",
+  description: "Our story began with a vision to create a unique dining experience that merges fine dining, exceptional service, and a vibrant ambiance. Rooted in city's rich culinary culture, we aim to honor our local roots while infusing a global palate. At place, we believe that dining is not just about food, but also about the overall experience. Our staff, renowned for their warmth and dedication, strives to make every visit an unforgettable event.",
+  content: "At place, we believe that dining is not just about food, but also about the overall experience. Our staff, renowned for their warmth and dedication, strives to make every visit an unforgettable event.",
+  btnText: "More About Us",
+  link: "/contact",
+  image: images.home1 
+};
 
    const featuresInfo: InfoItem[] = [
   {
@@ -131,21 +109,21 @@ const contactInfo: InfoItem[] = [
     {
       name: "Sophire Robson",
       location: "Los Angeles, CA",
-      image: customer.image1,
+      customerImage: customer.image1,
       feedback: "“The best restaurant”",
       comment: "Last night, we dined at place and were simply blown away. From the moment we stepped in, we were enveloped in an inviting atmosphere and greeted with warm smiles."
     },
     {
       name: "Matt Cannon",
       location: "San Diego, CA",
-      image: customer.image2,
+      customerImage: customer.image2,
       feedback: "“Simply delicious”",
       comment: "Place exceeded my expectations on all fronts. The ambiance was cozy and relaxed, making it a perfect venue for our anniversary dinner. Each dish was prepared and beautifully presented."
     },
     {
       name: "Andy Smith",
       location: "San Francisco, CA",
-      image: customer.image3,
+      customerImage: customer.image3,
       feedback: "“One of a kind restaurant”",
       comment: "The culinary experience at place is first to none. The atmosphere is vibrant, the food - nothing short of extraordinary. The food was the highlight of our evening. Highly recommended."
     }   
@@ -165,7 +143,7 @@ const contactInfo: InfoItem[] = [
     },
     {
       title: "How to prepare delicious chicken tenders",
-      time: "January 5. 2023",
+      time: "January 5, 2023",
       image: homePart4.image3
     },
      {
@@ -179,20 +157,6 @@ const contactInfo: InfoItem[] = [
       image: homePart4.image5
     },
   ]
-
-  const ContactInfoComponent: React.FC<{ contactInfo: InfoItem[], position: { x: number, y: number } }> = ({ contactInfo, position }) => (
-  <div className="contact-info  py-4 px-4 bg-[--color-primary] w-fit h-fit rounded-lg" style={{ position: 'absolute', top: position.y, left: position.x }}>
-    <p className="title py-5 pl-4 text-start text-white text-xl">Come and visit us</p>
-    <div className="info box-content flex flex-col flex-wrap w-fit">
-      {contactInfo.map((item, index) => (
-        <div key={index} className={`${item.name} box-content w-full pl-5 py-2`}>
-          {item.icon}
-          <p>{item.info}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-  );
     
   const MenuCard: React.FC<{ menuIcon:MenuIcon }> = ({ menuIcon }) => (
     <div className="card flex w-1/5 border-[#DBDFD0] border-2 rounded-lg">
@@ -222,39 +186,6 @@ const contactInfo: InfoItem[] = [
     </div>
   );
 
-  const BlogCard: React.FC<{ blog:Blog }> = ({blog}) => (
-    <div className="blog-card w-fit h-fit">
-      <Image
-        className="object-cover w-fit h-fit rounded-lg"
-        alt="customer"
-        priority={true}
-        src={blog.image} />
-      <div className="text w-64 py-5">
-        <p className="time text-xs italic">{blog.time}</p>
-        <p className="title font-semibold">{blog.title}</p>
-      </div>
-    </div>
-  );
-  const FeedbackCard: React.FC<{ customer: Testimonial }> = ({ customer }) => (
-    <div className="w-1/4 bg-[--color-gray] rounded-lg py-4 px-4">
-      <div className="text">
-        <p className="feedback text-[--color-red] font-bold">{customer.feedback}</p>
-        <p className="feedback_full text-xs text-sm py-5">{customer.comment}</p>
-      </div>
-      <div className="customer flex flex-row mt-5">
-        <Image 
-          className="object-cover w-fit h-fit rounded-full"
-          alt="customer"
-          priority={true}
-          src={customer.image}
-        />
-        <div className="customer_info flex flex-col justify-evenly pl-3">
-          <p className="text-xs font-bold">{customer.name}</p>
-          <p className="text-xs">{customer.location}</p>
-        </div>
-      </div>
-    </div>
-  )
 
   return (
     <div className="body flex flex-col">
@@ -265,17 +196,17 @@ const contactInfo: InfoItem[] = [
           priority={true}
           src={images.bg}
         />
-        <div className="text absolute text-center top-2/4 inset-x-1/2 -translate-x-1/2 -translate-y-1/2 w-full md:w-1/3">
+        <div className="text absolute text-center top-2/4 inset-x-1/2 -translate-x-1/2 -translate-y-3/4 w-full md:w-1/3">
           <p className="font_playfair font-normal text-2xl md:text-7xl md:pb-5 ">Best food for your taste</p>
           <p className="pb-0 md:pb-10">Discover delectable cuisine and unforgettable moments in our welcoming, culinary haven.</p>
-          <div className="action flex gap-3 justify-center">
+          <div className="action flex gap-10 justify-center">
             <Link href="/booking" className="red_btn">Book A Table</Link>
             <Link href="/menu" className="outline_btn">Explore Menu</Link>
           </div>  
         </div>
       </div>
 
-      <div className="section flex-col">
+      <div className="section section-menu flex-col">
         <p className="header_content pb-0 md:pb-10">Browse Our Menu</p>
 
         <div className="menu flex flex-row justify-between w-full">
@@ -283,40 +214,11 @@ const contactInfo: InfoItem[] = [
             <MenuCard key={index} menuIcon={menuIcon} />
           ))}
         </div>
-      </div> 
-    
-      <div className="section md:flex-row bg-[--color-gray]">
-        <div className="flex relative"
-            onMouseMove={(e) => setHoverPosition({ x: e.clientX, y: e.clientY })}
-        >
-          <div
-            className="flex-start image"
-            onMouseEnter={() => setShowContactInfo(true)}
-            onMouseLeave={() => setShowContactInfo(false)}
-          >
-            <Image 
-              className="object-cover relative rounded-lg"
-              alt="Background"
-              priority={true}
-              src={images.home1}
-            />
-          </div>
-          {showContactInfo && <ContactInfoComponent contactInfo={contactInfo} position={hoverPosition} />}
-        </div>
+      </div>     
+  
+      <SectionAbout  sectionInfo={sectionInfo} contactInfo={contactInfo} hasButton={true} />
 
-        <div className="text w-full md:w-1/2 flex justify-end">
-          <div className="w-full md:w-9/12 h-7/12">
-            <>
-              <p className="header_content pb-0 md:pb-10">We provide healthy food for your family.</p>
-              <p className="font-semibold text-xs pb-4">Our story began with a vision to create a unique dining experience that merges fine dining, exceptional service, and a vibrant ambiance. Rooted in city's rich culinary culture, we aim to honor our local roots while infusing a global palate.</p>
-              <p className="text-xs">At place, we believe that dining is not just about food, but also about the overall experience. Our staff, renowned for their warmth and dedication, strives to make every visit an unforgettable event.</p>
-            </>
-            <Link href={'/contact'} className="outline_btn mt-5 w-fit">More About Us</Link>
-          </div>
-        </div>
-      </div>
-
-      <div className="section flex-col">
+      <div className="section section-services flex-col">
         <div className="title w-full">
           <p className="header_content w-1/2 pb-4 md:w-1/3 md:pb-8">We also offer unique services for your events</p>
         </div>
@@ -329,7 +231,7 @@ const contactInfo: InfoItem[] = [
         </div>
       </div>
     
-      <div className="section bg-[--color-gray]">
+      <div className="section section-content bg-[--color-gray]">
         <div className="image flex flex-row w-full">
           <Image
             className="object-contain h-[430px] w-fit pr-2"
@@ -372,17 +274,9 @@ const contactInfo: InfoItem[] = [
         </div>
       </div>
 
-      <div className="section flex-col">
-        <p className="header_content pb-0 md:pb-10">What Out Customers Say</p>
-
-        <div className="menu flex flex-row justify-between w-full">
-          {feedbackCustomers.map((customer, index) => (
-            <FeedbackCard key={index} customer={customer} />
-          ))}
-        </div>
-      </div>
+      <SectionTestimonial feedbacks={feedbackCustomers}/>
       
-      <div className="section flex-col bg-[--color-gray]">
+      <div className="section section-blog flex-col bg-[--color-gray]">
         <div className="flex flex-row w-full justify-between pb-0 md:pb-10">
           <div>
             <span className="header_content">Our Blog & Articles</span>
