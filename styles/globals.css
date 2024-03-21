@@ -86,6 +86,10 @@
     stroke-miterlimit:10;
 }
 
+.not_italic{
+    font-style:normal !important;
+}
+
 /* Tailwind Styles */
 
 .text_white{
@@ -130,6 +134,8 @@
 .red_btn {
     @apply rounded-full border border-[--color-red] bg-[--color-red] py-3 px-5 text-white transition-all hover:bg-white hover:text-[--color-red] text-center text-sm flex items-center justify-center;
 }
+
+
 
 .footer_text {
     @apply font-sans text-[#ADB29E] text-xs font-thin;
