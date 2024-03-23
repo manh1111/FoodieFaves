@@ -197,7 +197,7 @@ const sectionInfo:AboutSectionItem = {
           src={images.bg}
         />
         <div className="text absolute text-center top-2/4 inset-x-1/2 -translate-x-1/2 -translate-y-3/4 w-full md:w-1/3">
-          <p className="font_playfair not_italic font-normal text-2xl md:text-7xl md:pb-5 ">Best food for your taste</p>
+          <p className="font_playfair  font-normal text-2xl md:text-7xl md:pb-5 ">Best food for your taste</p>
           <p className="pb-0 md:pb-10">Discover delectable cuisine and unforgettable moments in our welcoming, culinary haven.</p>
           <div className="action flex gap-10 justify-center">
             <Link href="/booking" className="red_btn">Book A Table</Link>
@@ -302,7 +302,7 @@ const sectionInfo:AboutSectionItem = {
           </div>
           <div className="w-1/2 grid grid-rows-2 grid-flow-col gap-3">
             {blogs.map((blog, index) => (
-              index > 0 && <BlogCard key={index} blog={blog} />
+              index > 0 && <BlogCard key={index} blog={blog} width="w-72"/>
               ))}
           </div>
         </div>

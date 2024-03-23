@@ -2,6 +2,7 @@
 
 import { brands, foods } from "@public/assets/images";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 interface Food{
@@ -9,7 +10,8 @@ interface Food{
     cost: number;
     image: string;
     desc: string;
-    has3D: boolean
+    has3D: boolean;
+    foodId: number;
 }
 
 const Menu: React.FC = () => { 
@@ -33,19 +35,22 @@ const Menu: React.FC = () => {
     ] 
 
     const infoFoods: Food[] = [
-        {
+        {   
+            foodId: 1,
             name: "Fried Eggs",
             cost: 9.99,
             desc: "Made with eggs, lettuce, salt, oil and other ingredients.",
             image: foods.FriedEggs,
             has3D: false
         },{
+            foodId: 2,
             name: "Hawaiian Pizza",
             cost: 15.99,
             desc: "Made with eggs, lettuce, salt, oil and other ingredients.",
             image: foods.HawaiianPizza,
             has3D: false
         },{
+            foodId: 3,
             name: "Martinez Coktail",
             cost: 7.25,
             desc: "Made with eggs, lettuce, salt, oil and other ingredients.",
@@ -53,30 +58,35 @@ const Menu: React.FC = () => {
             has3D: false
 
         },{
+            foodId: 4,
             name: "Butterscotch Cake",
             cost: 20.99,
             desc: "Made with eggs, lettuce, salt, oil and other ingredients.",
             image: foods.ButterscotchCake,
-            has3D: false
+            has3D: true
         },{
+            foodId: 5,
             name: "Mint Lemnonade",
             cost: 5.89,
             desc: "Made with eggs, lettuce, salt, oil and other ingredients.",
             image: foods.MintLemnonade,
             has3D: false
         },{
+            foodId: 6,
             name: "Chocolate Icecream",
             cost: 18.5,
             desc: "Made with eggs, lettuce, salt, oil and other ingredients.",
             image: foods.ChocolateIcecream,
             has3D: false
         },{
+            foodId: 7,
             name: "Cheese Burger",
             cost: 12.55,
             desc: "Made with eggs, lettuce, salt, oil and other ingredients.",
             image: foods.CheeseBurger,
             has3D: false
         },{
+            foodId: 8,
             name: "ClassicWaffles",
             cost: 20.99,
             desc: "Made with eggs, lettuce, salt, oil and other ingredients.",
@@ -92,9 +102,16 @@ const Menu: React.FC = () => {
         alt="food"
         priority={true}
         src={food.image} />
-      <div className="text text-center py-5">
-        <p className="cost text-[--color-red] font-extrabold">$ {food.cost}</p>
+      <div className="text w-52 text-center py-5 px-5 ml-5">
+        <div className="flex flex-row justify-center items-center">
+            <p className="cost text-[--color-red] font-extrabold pr-2">$ {food.cost}</p>
+            {food.has3D && <Link href={`/${food.name}`}>
+                                <p className=" w-8 text-white font-semibold text-xs bg-[--color-red] rounded-full px-2 py-2">3D</p>
+                    </Link>
+            }
+        </div>
         <p className="name font-semibold py-2">{food.name}</p>
+        {/* <Link href={`/${food.foodId}`} className="name font-semibold py-2">{food.name}</Link> */}
         <p className="desc text-xs">{food.desc}</p>
       </div>
     </div>

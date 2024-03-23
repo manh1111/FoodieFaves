@@ -135,26 +135,13 @@
     @apply rounded-full border border-[--color-red] bg-[--color-red] py-3 px-5 text-white transition-all hover:bg-white hover:text-[--color-red] text-center text-sm flex items-center justify-center;
 }
 
-
-
 .footer_text {
     @apply font-sans text-[#ADB29E] text-xs font-thin;
 }
 
-.orange_gradient {
-    @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
-}
 
-.green_gradient {
-    @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent;
-}
-
-.blue_gradient {
-    @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
-}
-
-.search_input {
-    @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+.input_form {
+    @apply w-full rounded-full border border-gray-200 bg-white py-3 px-5 text-[#2C2F24] text-sm font-medium focus:border-black focus:outline-none focus:ring-0;
 }
 
 .copy_btn {

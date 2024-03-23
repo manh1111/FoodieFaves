@@ -5,6 +5,7 @@ export const images = {
     about1: require('./about-1.png'),
     about2: require('./about-2.png'),
     about3: require('./about-3.png'),
+    map: require('./Map.png')
 }
 
 export const homePart2 = {
@@ -63,3 +64,18 @@ export const brands = [
     require('./brand-8.png'),
     require('./brand-9.png'),
 ]
+
+export const blogsImage = {
+    blog1: require('./blog-1.png'),
+    blog2: require('./blog-2.png'),
+    blog3: require('./blog-3.png'),
+    blog4: require('./blog-4.png'),
+    blog5: require('./blog-5.png'),
+    blog6: require('./blog-6.png'),
+    blog7: require('./blog-7.png'),
+    blog8: require('./blog-8.png'),
+    blog9: require('./blog-9.png'),
+    blog10: require('./blog-10.png'),
+    blog11: require('./blog-11.png'),
+    blog12: require('./blog-12.png'),
+}
