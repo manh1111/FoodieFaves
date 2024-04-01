@@ -27,6 +27,9 @@ const BookingSchema = new Schema({
   },
 });
 
-const Booking = models.Booking || model('Booking', BookingSchema);
+let Booking = models.Booking;
+if (!Booking) {
+  Booking = model('Booking', BookingSchema);
+}
 
 export default Booking;

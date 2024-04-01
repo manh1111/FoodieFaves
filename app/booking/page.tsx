@@ -1,3 +1,5 @@
+'use client';
+
 import { images } from '@public/assets/images';
 import Image from 'next/image';
 import React, { useState } from 'react';
@@ -50,7 +52,7 @@ const Booking: React.FC = () => {
 
     //  gửi dữ liệu đến server
     try {
-      const response = await fetch('/api/bookings/new', {
+      const response = await fetch('/api/booking/new', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -64,17 +66,17 @@ const Booking: React.FC = () => {
         }),
       });
       if (response.ok) {
-        setFormData({
-          date: '',
-          time: '',
-          name: '',
-          phone: '',
-          total_person: '',
-        });
       }
     } catch (error) {
       console.log(error);
     }
+    setFormData({
+      date: '',
+      time: '',
+      name: '',
+      phone: '',
+      total_person: '',
+    });
   };
 
   return (
