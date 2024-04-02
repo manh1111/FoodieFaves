@@ -1,4 +1,4 @@
-import NextAuth from 'next-auth';
+import NextAuth, { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 
 import User from '@models/user';
@@ -8,7 +8,7 @@ import { connectToDB } from '@utils/database';
 //     clientId: process.env.GOOGLE_ID,
 //     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
 // })
-export const authOption = {
+export const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
@@ -29,21 +29,21 @@ export const authOption = {
         console.log(profile);
 
         // check if user already exists
-        const userExists = await User.findOne({ email: profile.email });
+        const userExists = await User.findOne({ email: profile?.email });
 
         // if not, create and save in MongoDB
         if (!userExists) {
           await User.create({
-            email: profile.email,
-            username: profile.name.replace(' ', '').toLowerCase(),
-            image: profile.picture,
+            email: profile?.email,
+            username: profile?.name?.replace(' ', '').toLowerCase(),
+            image: (profile as any).picture,
             role: 'user',
           });
         }
 
         return true;
-      } catch (error) {
-        console.log('Error checking if user exists: ', error.message);
+      } catch (error: any) {
+        console.log('Error checking if user exists: ', error?.message);
         return false;
       }
     },
