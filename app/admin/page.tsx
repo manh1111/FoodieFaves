@@ -1,5 +1,5 @@
+import { authOptions } from '@app/api/auth/[...nextauth]/option';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@app/api/auth/[...nextauth]/route';
 
 export default async function Admin() {
   const session = await getServerSession(authOptions);
